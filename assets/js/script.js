@@ -1,7 +1,7 @@
 const toDoTask = document.getElementById('toDoTask');
 const btnSubmit = document.getElementById('submitTask');
 const taskList = document.getElementById('taskList');
-let newLi = document.createElement('li');
+let newLi;
 const taskArray = [];
 
 btnSubmit.addEventListener('click', function (e) {
@@ -27,11 +27,11 @@ function pushArray() {
 function printTask() {
   taskList.innerHTML = '';
   for (let i = 0; i < taskArray.length; i++) {
+    newLi = document.createElement('li');
     newLi.innerText = taskArray[i];
     let btnRemove = document.createElement('button');
     let newI = document.createElement('i');
     newI.classList.add('fa-solid', 'fa-trash');
-    checkUncheck();
     btnRemove.setAttribute('type', 'button');
     btnRemove.setAttribute('onclick', `deleteItem(${i})`);
     btnRemove.appendChild(newI);
@@ -44,16 +44,4 @@ function printTask() {
 function deleteItem(item) {
   taskArray.splice(item, 1);
   printTask();
-}
-
-function checkUncheck() {
-  if (newLi.classList === 'checked') {
-    newLi.addEventListener('click', function () {
-      newLi.classList.add('checked');
-    });
-  } else {
-    newLi.addEventListener('click', function () {
-      newLi.classList.remove('checked');
-    });
-  }
 }
