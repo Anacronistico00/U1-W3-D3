@@ -9,6 +9,7 @@ btnSubmit.addEventListener('click', function (e) {
   if (!checkinput()) return;
   pushArray();
   printTask();
+  toDoTask.value = '';
 });
 
 function checkinput() {
@@ -32,6 +33,9 @@ function printTask() {
     let btnRemove = document.createElement('button');
     let newI = document.createElement('i');
     newI.classList.add('fa-solid', 'fa-trash');
+    newLi.addEventListener('click', function () {
+      newLi.classList.toggle('checked');
+    });
     btnRemove.setAttribute('type', 'button');
     btnRemove.setAttribute('onclick', `deleteItem(${i})`);
     btnRemove.appendChild(newI);
