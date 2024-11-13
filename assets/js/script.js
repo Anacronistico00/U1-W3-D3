@@ -1,7 +1,6 @@
 const toDoTask = document.getElementById('toDoTask');
 const btnSubmit = document.getElementById('submitTask');
 const taskList = document.getElementById('taskList');
-let newLi;
 const taskArray = [];
 
 btnSubmit.addEventListener('click', function (e) {
@@ -28,7 +27,7 @@ function pushArray() {
 function printTask() {
   taskList.innerHTML = '';
   for (let i = 0; i < taskArray.length; i++) {
-    newLi = document.createElement('li');
+    let newLi = document.createElement('li');
     newLi.innerText = taskArray[i];
     let btnRemove = document.createElement('button');
     let newI = document.createElement('i');
