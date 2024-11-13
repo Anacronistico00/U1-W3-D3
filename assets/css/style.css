@@ -1,0 +1,39 @@
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    background-color: #53AC53;
+    text-align: center;
+}
+
+#toDoForm {
+    margin: 0 auto;
+    margin-top: 30vh;
+    padding: 50px 0 50px 0;
+    width: 50%;
+}
+#toDoTask {
+    width: 90%;
+    height: 5vh;
+    border-radius: 20px;
+    border-color: red;
+    text-align: center;
+}
+
+#submitTask {
+    background-color: white;
+    border-style: none;
+    width: 3vw;
+    height: 5vh;
+    border-radius: 10px;
+
+}
+
+#title,
+#subTitle {
+    background-color: #477e47;
+    color: white
+}
