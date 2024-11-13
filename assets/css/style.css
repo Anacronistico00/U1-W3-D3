@@ -37,3 +37,9 @@ body {
     background-color: #477e47;
     color: white
 }
+
+#tasklist {
+    text-align: center;
+    margin-top: 10px;
+
+}
