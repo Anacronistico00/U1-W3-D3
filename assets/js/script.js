@@ -21,27 +21,38 @@ function checkinput() {
 }
 
 function pushArray() {
-  taskArray.push(toDoTask.value);
+  taskArray.push({ text: toDoTask.value, checked: false });
 }
 
 function printTask() {
   taskList.innerHTML = '';
   for (let i = 0; i < taskArray.length; i++) {
     let newLi = document.createElement('li');
-    newLi.innerText = taskArray[i];
+    newLi.innerText = taskArray[i].text;
+
+    if (taskArray[i].checked) {
+      newLi.classList.add('checked');
+    }
+
     let btnRemove = document.createElement('button');
     let newI = document.createElement('i');
     newI.classList.add('fa-solid', 'fa-trash');
+    btnRemove.appendChild(newI);
+
     newLi.addEventListener('click', function () {
-      newLi.classList.toggle('checked');
+      toggleChecked(i);
     });
     btnRemove.setAttribute('type', 'button');
     btnRemove.setAttribute('onclick', `deleteItem(${i})`);
-    btnRemove.appendChild(newI);
 
     newLi.appendChild(btnRemove);
     taskList.appendChild(newLi);
   }
+}
+
+function toggleChecked(index) {
+  taskArray[index].checked = !taskArray[index].checked;
+  printTask();
 }
 
 function deleteItem(item) {
